@@ -7,38 +7,38 @@ public class Dealer {
     public static final Name DEALER_NAME = new Name("딜러");
     private static final int DEALER_DRAW_THRESHOLD = 17;
 
-    private final Player player = new Player(DEALER_NAME);
+    private final Gambler gambler = new Gambler(DEALER_NAME);
 
     public void hit(final Card card) {
-        player.hit(card);
+        gambler.hit(card);
     }
 
     public int calculateScore() {
-        return player.calculateScore();
+        return gambler.calculateScore();
     }
 
     public boolean isBust() {
-        return player.isBust();
+        return gambler.isBust();
     }
 
     public boolean isBlackjack() {
-        return player.isBlackjack();
+        return gambler.isBlackjack();
     }
 
     public boolean isNameEquals(final Name name) {
-        return player.isNameEquals(name);
+        return gambler.isNameEquals(name);
     }
 
     public boolean mustDraw() {
-        return player.calculateScore() < DEALER_DRAW_THRESHOLD;
+        return gambler.calculateScore() < DEALER_DRAW_THRESHOLD;
     }
 
     public int calculateScoreDifference(final Player other) {
-        return player.calculateScore() - other.calculateScore();
+        return gambler.calculateScore() - other.calculateScore();
     }
 
     public List<Card> getCards() {
-        return player.getCards();
+        return gambler.getCards();
     }
 
     public List<Card> getInitialCards() {

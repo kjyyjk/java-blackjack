@@ -5,6 +5,7 @@ import static blackjack.domain.fixture.CardFixture.createCards;
 import blackjack.domain.card.Card;
 import blackjack.domain.card.CardType;
 import blackjack.domain.gambler.Dealer;
+import blackjack.domain.gambler.Gambler;
 import blackjack.domain.gambler.Name;
 import blackjack.domain.gambler.Player;
 
@@ -21,7 +22,8 @@ public class GamblerFixture {
     }
 
     public static Player createPlayerWithCards(Name name, CardType... cardTypes) {
-        Player player = new Player(name);
+        Gambler gambler = new Gambler(name);
+        Player player = new Player(gambler);
         for (Card card : createCards(cardTypes)) {
             player.hit(card);
         }
